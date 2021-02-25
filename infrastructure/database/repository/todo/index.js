@@ -1,4 +1,4 @@
-const Todo = require("./todo");
-const todo = new Todo();
+const TodoRepository = require("./todo-repository");
+const todoRepository = new TodoRepository();
 
-module.exports = todo;
+module.exports = todoRepository;

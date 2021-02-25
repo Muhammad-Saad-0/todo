@@ -1,6 +1,6 @@
-const Todo = require('./todo');
-const todoApp = require('../../../application/todo');
+const TodoController = require('./todo-controller');
+const todoService = require('../../../application/todo');
 
-const todo = new Todo(todoApp);
+const todoController = new TodoController(todoService);
 
-module.exports = todo;
+module.exports = todoController;

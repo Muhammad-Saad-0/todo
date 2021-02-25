@@ -1,6 +1,6 @@
 module.exports = (sequelize, Sequelize) => {
     
-    const Todo = sequelize.define("todo", {
+    const TodoModel = sequelize.define("todo", {
         id: {
             type: Sequelize.STRING,
             primaryKey: true
@@ -20,5 +20,5 @@ module.exports = (sequelize, Sequelize) => {
         }
     });
   
-    return Todo;
+    return TodoModel;
 };

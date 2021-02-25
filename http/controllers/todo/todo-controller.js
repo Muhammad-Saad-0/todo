@@ -1,18 +1,18 @@
 class TodoController {
 
-    constructor (newTodoApp) {
-        this.todoApp = newTodoApp
+    constructor (newTodoService) {
+        this.todoService = newTodoService
     }
 
     async create (req, res) {
         const { description, startDate, endDate } = req.body;
-        const response = await this.todoApp.addNewTodo(description, startDate, endDate);
+        const response = await this.todoService.addNewTodo(description, startDate, endDate);
         res.send(response);
     }
 
     async select (req, res) {
         const condition =  null;
-        const response = await this.todoApp.getAllTodo(condition);
+        const response = await this.todoService.getAllTodo(condition);
         res.send(response);
     }
 
@@ -20,14 +20,14 @@ class TodoController {
         const data = req.body;
         const id = req.params.id;
 
-        const response = await this.todoApp.updateTodo(data, id);
+        const response = await this.todoService.updateTodo(data, id);
         res.send(response);
     }
 
     async delete (req, res) {
         const id = req.params.id;
 
-        const response = await this.todoApp.deleteTodo(id);
+        const response = await this.todoService.deleteTodo(id);
         res.send(response);
     }
 

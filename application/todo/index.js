@@ -1,6 +1,6 @@
-const Todo = require ("./todo");
-const todoService = require ("../../infrastructure/database/repository/todo");
+const TodoService = require ("./todo-service");
+const todoRepository = require ("../../infrastructure/database/repository/todo");
 
-const todo = new Todo(todoService);
+const todoService = new TodoService(todoRepository);
 
-module.exports =  todo;
+module.exports =  todoService;

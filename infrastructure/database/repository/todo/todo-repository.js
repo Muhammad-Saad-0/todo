@@ -2,7 +2,7 @@ const db = require("../../models");
 const Todo = db.todo;
 
 
-class TodoDbRepository {
+class TodoRepository {
 
     async create (data) {
         try {
@@ -43,4 +43,4 @@ class TodoDbRepository {
     }
 }
 
-module.exports = TodoDbRepository;
+module.exports = TodoRepository;

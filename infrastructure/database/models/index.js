@@ -31,7 +31,7 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.todo = require("./todo.js")(sequelize, Sequelize);
-db.user = require("./user.js")(sequelize, Sequelize);
+db.todo = require("./todo-model.js")(sequelize, Sequelize);
+db.user = require("./user-model.js")(sequelize, Sequelize);
 
 module.exports = db;

@@ -6,7 +6,7 @@ program.version('1.0.0').description('its a todo api');
 
 
 // get complete list of todo's
-program.command('findall').alias('fa').description('Get complete list of todo\'s').action(
+program.command('findAll').alias('fa').description('Get complete list of todo\'s').action(
     async () => {
         try {
             var condition =  null;
@@ -43,7 +43,7 @@ program.command('update <id>').alias('u').description('Update a todo').action(
 );
 
 // delete a todo
-program.command('remove <id>').alias('r').description('Remove a todo').action( 
+program.command('delete <id>').alias('d').description('Remove a todo').action( 
     async(id) => {
         try {
                 const results = await todo.deleteTodo(id);
