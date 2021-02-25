@@ -1,4 +1,4 @@
-const AuthRepository = require("./auth-repository");
-const authRepository = new AuthRepository();
+const UserRepository = require("./user-repository");
+const userRepository = new UserRepository();
 
-module.exports = authRepository;
+module.exports = userRepository;

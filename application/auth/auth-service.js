@@ -1,13 +1,13 @@
 class AuthService {
 
-    constructor (newAuthRepository, newAuthenticationService) {
-        this.authRepository = newAuthRepository;
+    constructor (newUserRepository, newAuthenticationService) {
+        this.userRepository = newUserRepository;
         this.AuthenticationService = newAuthenticationService;
     }
 
     async login (username, password) {
         try {
-            const results = await this.authRepository.login(username);
+            const results = await this.userRepository.findUserByName(username);
             if (Object.keys(results).length === 0){
                 return({message: "Invalid username or password"});
             }
@@ -16,11 +16,28 @@ class AuthService {
 	            if (!validPassword)return ({message: "Invalid email or password"});
 
                 const data = { username: results[0]['dataValues']['user'] }
-                var token = this.AuthenticationService.authenticationTokenCreate(data);
+                var token = this.AuthenticationService.createAuthenticationToken(data);
                 return (token)
             }
         } 
         catch (error) {
+            throw (error)
+        }
+    }
+
+
+    async signUp (username, password) {
+        
+        try {
+            const results = await this.userRepository.findUserByName(username);
+            if (Object.keys(results).length === 0){
+                const user = {username: username, password: password}
+                const results = await this.userRepository.addNewUser(user);
+            }
+            else {
+                return("This email is already exists. So use another email.")
+            }
+        } catch (error) {
             throw (error)
         }
     }

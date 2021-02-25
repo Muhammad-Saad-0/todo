@@ -1,7 +1,7 @@
 const AuthService = require ("./auth-service");
 const authenticationService = require("../../infrastructure/authentication");
-const authRepository = require ("../../infrastructure/database/repository/auth");
+const userRepository = require ("../../infrastructure/database/repository/auth");
 
-const authService = new AuthService(authRepository, authenticationService);
+const authService = new AuthService(userRepository, authenticationService);
 
 module.exports =  authService;
