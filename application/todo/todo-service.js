@@ -1,7 +1,6 @@
 class TodoService {
 
     constructor (newTodoRepository) {
-        console.log("In constructor of application layer")
         this.todoRepository = newTodoRepository;
     }
 
@@ -13,7 +12,6 @@ class TodoService {
     }
 
     async getAllTodo (condition) {
-        console.log("I am in get all todo")
         const results = await this.todoRepository.select(condition);
         return results;
     }
@@ -24,7 +22,6 @@ class TodoService {
     }
 
     async deleteTodo (id) {
-        console.log(" in delete Todo of application layer")
         const results = await this.todoRepository.delete(id);
         return results;
     }
