@@ -1,14 +1,14 @@
 require('dotenv').config()
 const express = require('express')
 const bodyParser = require('body-parser');
-const db = require("./models");
+const db = require("./infrastructure/database/models");
 
 
 const app = express();
 app.use(bodyParser.json());
 db.sequelize.sync();
 
-const todo = require('./routes/todo.js');
+const todo = require('./http/routes/todo.js');
 app.use('/', todo);
 
 // set port, listen for requests
