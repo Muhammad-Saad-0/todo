@@ -11,8 +11,8 @@ class TodoService {
         return results;
     }
 
-    async getAllTodo (condition) {
-        const results = await this.todoRepository.select(condition);
+    async getAllTodo (condition, limit, offset) {
+        const results = await this.todoRepository.select(condition, limit, offset);
         return results;
     }
 

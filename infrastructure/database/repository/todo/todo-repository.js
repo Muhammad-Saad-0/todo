@@ -13,9 +13,9 @@ class TodoRepository {
         }
     }
 
-    async select (condition) {
+    async select (condition, limit, offset) {
         try {
-            const results = await Todo.findAll({ where: condition });
+            const results = await Todo.findAll({ where: condition, limit: limit, offset: offset});
             return results;   
         } 
         catch (error) {

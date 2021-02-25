@@ -8,8 +8,10 @@ const app = express();
 app.use(bodyParser.json());
 db.sequelize.sync();
 
-const todo = require('./http/routes/todo.js');
-app.use('/', todo);
+const todoRoutes = require('./http/routes/todo-routes.js');
+const authRoutes = require('./http/routes/auth-routes.js');
+app.use('/', todoRoutes);
+app.use('/', authRoutes);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 3002;
