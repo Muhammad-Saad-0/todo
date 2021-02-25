@@ -1,0 +1,19 @@
+require('dotenv').config()
+const express = require('express')
+const bodyParser = require('body-parser');
+const todoRoutes = require('./routes/todo-routes');
+const authRoutes = require('./routes/auth-routes.js');
+const app = express();
+
+app.use(bodyParser.json());
+app.use('/', todoRoutes);
+app.use('/', authRoutes);
+
+
+const CreateServer = () => {
+    app.listen("3002", () => {
+        console.log(`Server is running on port 3002.`);
+    });
+}
+
+exports.CreateServer = CreateServer;
