@@ -11,9 +11,10 @@ class TodoController {
     }
 
     async select (req, res) {
-        const { limit, offset } = req.query;
+        // const { limit, offset } = req.query;
         const condition =  null;
-        const response = await this.todoService.getAllTodo(condition, parseInt(limit), parseInt(offset));
+        // const response = await this.todoService.getAllTodo(condition, parseInt(limit), parseInt(offset));
+        const response = await this.todoService.getAllTodo(condition);
         res.send(response);
     }
 

@@ -1,4 +1,4 @@
 const server = require("./http");
-const database = require("./infrastructure/database");
+const database = require("./infrastructure/database/sequelize");
 
 server.CreateServer();

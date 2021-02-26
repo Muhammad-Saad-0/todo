@@ -5,16 +5,16 @@ const authenticate = require("../middleware/authorization")
 
 
 // Retrieve all todo's
-router.get('/', authenticate, todoController.select.bind(todoController));
+router.get('/', todoController.select.bind(todoController));
 
 // Create a new todo
-router.post('/', authenticate, todoController.create.bind(todoController));
+router.post('/', todoController.create.bind(todoController));
 
 // Update a todo with id
-router.put('/:id', authenticate, todoController.update.bind(todoController));
+router.put('/:id', todoController.update.bind(todoController));
  
 // Delete a todo with id
-router.delete('/:id', authenticate, todoController.delete.bind(todoController));
+router.delete('/:id', todoController.delete.bind(todoController));
 
 
 module.exports = router

@@ -1,12 +1,11 @@
 const db = require("../../models");
 const User = db.user;
 
+class AuthRepository {
 
-class UserRepository{
-    
     async findUserByName (username) {
         try {
-            const results = await User.findAll({attributes: ['username', 'password'], where: {username: username}})
+            const results = await User.find({username: username});
             return results;    
         } catch (error) {
             return error;
@@ -24,4 +23,4 @@ class UserRepository{
     }
 }
 
-module.exports = UserRepository;
+module.exports = AuthRepository;
