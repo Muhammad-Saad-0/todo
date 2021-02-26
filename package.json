@@ -22,6 +22,7 @@
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.7",
     "sequelize": "^6.5.0",
+    "sequelize-cli": "^6.2.0",
     "stream-logger": "^1.0.1",
     "uuid": "^8.3.2"
   }
