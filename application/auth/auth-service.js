@@ -1,9 +1,10 @@
 class AuthService {
 
-    constructor (newUserRepository, newAuthenticationService) {
+    constructor (newUserRepository, newAuthenticationService, newGoogleAuthentication) {
         this.userRepository = newUserRepository;
         this.AuthenticationService = newAuthenticationService;
-    }
+        this.googleAuthentication  = newGoogleAuthentication; 
+    };
 
     async login (username, password) {
         try {
@@ -25,6 +26,17 @@ class AuthService {
         }
     }
 
+    async loginUsingGoogle () {
+        console.log(this.googleAuthentication.url);
+        return (this.googleAuthentication.url)
+    }
+
+    async gettingGoogleAccessToken (authorizationCode) {
+        const {tokens} = await this.googleAuthentication.oauth2Client.getToken(authorizationCode)
+        this.googleAuthentication.oauth2Client.setCredentials(tokens);
+        console.log("In getting google access token");
+        return tokens;
+    }
 
     async signUp (username, password) {
         
