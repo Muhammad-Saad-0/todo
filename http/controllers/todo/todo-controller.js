@@ -11,10 +11,15 @@ class TodoController {
     }
 
     async select (req, res) {
-        // const { limit, offset } = req.query;
+        const { limit, page } = req.query;
         const condition =  null;
-        // const response = await this.todoService.getAllTodo(condition, parseInt(limit), parseInt(offset));
-        const response = await this.todoService.getAllTodo(condition);
+        const response = await this.todoService.getAllTodo(condition, parseInt(limit), parseInt(page));
+        res.send(response);
+    }
+
+    async selectOne (req, res) {
+        const id = req.params.id;
+        const response = await this.todoService.getOneTodo(id);
         res.send(response);
     }
 
@@ -28,9 +33,12 @@ class TodoController {
 
     async delete (req, res) {
         const id = req.params.id;
-
-        const response = await this.todoService.deleteTodo(id);
-        res.send(response);
+        try {
+            const response = await this.todoService.deleteTodo(id);
+            res.sendStatus(200);
+        } catch (error) {
+            throw error;
+        }
     }
 
 }

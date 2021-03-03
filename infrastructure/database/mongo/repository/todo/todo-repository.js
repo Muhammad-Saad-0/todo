@@ -4,11 +4,9 @@ const Todo = db.todo;
 
 class TodoRepository {
 
-    async create (data){
+    async create (todoEntity){
         try{
-            console.log(data);
-            console.log("I am in mongo create");
-            const results = await Todo.create(data);
+            const results = await Todo.create(todoEntity);
             return results;
         }
         catch (error){
@@ -40,7 +38,7 @@ class TodoRepository {
 
     async delete (id) {
         try {
-            const results = Todo.deleteOne({_id: id});
+            const results = await Todo.deleteOne({_id: id});
             return results;
         } catch (error) {
             throw error;

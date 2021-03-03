@@ -5,20 +5,40 @@ const Todo = db.todo;
 
 class TodoRepository {
 
-    async create(data) {
+    async create(todo) {
         try {
-            const results = await Todo.create(data)
+            const results = await Todo.create(todo);
             return results;
         } catch (error) {
+            throw (error);
+        }
+    }
+
+    async fetchById(id){
+        try {
+            const todo = await Todo.findByPk(id);
+            if(!todo){return null}
+            return TodoEntity.createFromObject(todo);
+        } catch (error) {
+            throw (error);
+        }
+    }
+
+    async select(conditions, limit, offset) {
+        try {
+            const todoObjects = await Todo.findAll({ where: conditions, limit: limit, offset: offset });
+            return todoObjects.map((todo) => {
+                return TodoEntity.createFromObject(todo);
+            });
+        }
+        catch (error) {
             return error;
         }
     }
 
-    async select(condition) {
+    async update(todo) {
         try {
-            // const results = await Todo.findAll({ where: condition, limit: limit, offset: offset});
-            const results = await Todo.findAll({ where: condition });
-            console.log(results);
+            const results = await Todo.update(todo, { where: { id: todo.id } });
             return results;
         }
         catch (error) {
@@ -26,19 +46,9 @@ class TodoRepository {
         }
     }
 
-    async update(data, id) {
+    async delete(todo) {
         try {
-            const results = await Todo.update(data, { where: { id: id } });
-            return results;
-        }
-        catch (error) {
-            return error;
-        }
-    }
-
-    async delete(id) {
-        try {
-            const results = await Todo.destroy({ where: { id: id } });
+            const results = await Todo.destroy({ where: { id: todo.id } });
             return results;
         } catch (error) {
             return error;

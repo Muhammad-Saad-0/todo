@@ -4,7 +4,7 @@ const todoRoutes = require('./todo-routes.js');
 const authRoutes = require('./auth-routes.js');
 
 
-router.use('/todo', todoRoutes);
-router.use('/auth', authRoutes);
+router.use('/api/v1/todos', todoRoutes);
+router.use('/api/v1/auth', authRoutes);
 
 module.exports = router;

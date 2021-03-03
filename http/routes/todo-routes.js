@@ -3,6 +3,8 @@ const router = express.Router()
 const todoController = require("../controllers/todo");
 const authenticate = require("../middleware/authorization")
 
+// Retrieve one todo
+router.get('/:id', todoController.selectOne.bind(todoController));
 
 // Retrieve all todo's
 router.get('/', todoController.select.bind(todoController));
