@@ -4,9 +4,9 @@ const Todo = db.todo;
 
 class TodoRepository {
 
-    async create (todoEntity){
+    async create (todo){
         try{
-            const results = await Todo.create(todoEntity);
+            const results = await Todo.create(todo);
             return results;
         }
         catch (error){
@@ -14,7 +14,7 @@ class TodoRepository {
         }
     }
 
-    async select (condition) {
+    async fetchAll (condition) {
         try {
             const todoObjects =  await Todo.find().lean();
             return todoObjects.map((todo) => {
@@ -24,21 +24,20 @@ class TodoRepository {
         } catch (error) {
             throw error;
         }
-        
     }
 
-    async update (id, data) {
+    async update (todo) {
         try {
-            const results = await Todo.update({_id: id}, data);
+            const results = await Todo.update({_id: todo.id}, todo);
             return results;
         } catch (error) {
             throw error;
         }
     }
 
-    async delete (id) {
+    async delete (todo) {
         try {
-            const results = await Todo.deleteOne({_id: id});
+            const results = await Todo.deleteOne({_id: todo.id});
             return results;
         } catch (error) {
             throw error;

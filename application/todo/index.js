@@ -1,6 +1,6 @@
 const server = require("../../infrastructure/config/server.js");
 const TodoService = require ("./todo-service");
-const RepositoryFactory = require('./repository-factory');
+const RepositoryFactory = require('../../infrastructure/database/factory/repository-factory');
 const TodoEntity = require('../../domain/entities/todo-entity.js');
 
 const repositoryFactory = new RepositoryFactory();

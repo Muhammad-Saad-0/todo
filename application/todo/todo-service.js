@@ -19,7 +19,7 @@ class TodoService {
 
     async getAllTodo (condition, limit, page) {
         const offset = ( page - 1) * limit
-        const results = await this.todoRepository.select(condition, limit, offset);
+        const results = await this.todoRepository.fetchAll(condition, limit, offset);
         return results;
     }
 

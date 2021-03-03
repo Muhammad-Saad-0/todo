@@ -1,5 +1,5 @@
-const todoSequelizeRepository = require ("../../infrastructure/database/sequelize/repository/todo");
-const todoMongoRepository = require ("../../infrastructure/database/mongo/repository/todo");
+const todoSequelizeRepository = require ("../sequelize/repository/todo");
+const todoMongoRepository = require ("../mongo/repository/todo");
 
 class RepositoryFactory {
 

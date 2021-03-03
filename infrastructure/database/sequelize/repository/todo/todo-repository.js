@@ -24,7 +24,7 @@ class TodoRepository {
         }
     }
 
-    async select(conditions, limit, offset) {
+    async fetchAll(conditions, limit, offset) {
         try {
             const todoObjects = await Todo.findAll({ where: conditions, limit: limit, offset: offset });
             return todoObjects.map((todo) => {

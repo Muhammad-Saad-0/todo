@@ -1,13 +1,13 @@
 const express = require('express')
 const router = express.Router()
 const todoController = require("../controllers/todo");
-const authenticate = require("../middleware/authorization")
+const authorization = require("../middleware/authorization")
 
 // Retrieve one todo
 router.get('/:id', todoController.selectOne.bind(todoController));
 
 // Retrieve all todo's
-router.get('/', todoController.select.bind(todoController));
+router.get('/', authorization, todoController.select.bind(todoController));
 
 // Create a new todo
 router.post('/', todoController.create.bind(todoController));

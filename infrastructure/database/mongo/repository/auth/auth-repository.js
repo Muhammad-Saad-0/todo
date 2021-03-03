@@ -13,7 +13,6 @@ class AuthRepository {
     }
 
     async addNewUser (data) {
-        console.log(data);
         try {
             const results = await User.create(data)
             return results;    
