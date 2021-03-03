@@ -1,4 +1,5 @@
 const db = require("../../models");
+const TodoEntity = require('../../../../../domain/entities/todo-entity.js');
 const Todo = db.todo;
 
 class TodoRepository {
@@ -15,11 +16,15 @@ class TodoRepository {
 
     async select (condition) {
         try {
-            const results = Todo.find().lean();
-            return results;
+            const todoObjects =  await Todo.find().lean();
+            return todoObjects.map((todo) => {
+                return TodoEntity.createFromObject(todo);
+            });
+            
         } catch (error) {
             throw error;
         }
+        
     }
 
     async update (id, data) {

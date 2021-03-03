@@ -1,14 +1,12 @@
 class TodoService {
 
-    constructor (newTodoRepository, newGenerateUUID) {
+    constructor (newTodoRepository) {
         this.todoRepository = newTodoRepository;
-        // this.generateUUID = newGenerateUUID;
         this.id = 22;
     }
 
     async addNewTodo (description, startDate, endDate) {
         this.id +=1;
-        console.log("In addNewTodo");
         const todo = {id: this.id, description: description, startDate: startDate, endDate: endDate};
         
         const results = await this.todoRepository.create(todo);
