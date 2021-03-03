@@ -37,7 +37,7 @@ class TodoController {
             const response = await this.todoService.deleteTodo(id);
             res.sendStatus(200);
         } catch (error) {
-            throw error;
+            throw (error);
         }
     }
 

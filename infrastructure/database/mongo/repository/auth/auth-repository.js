@@ -8,7 +8,7 @@ class AuthRepository {
             const results = await User.find({username: username});
             return results;    
         } catch (error) {
-            return error;
+            throw (error);
         }
     }
 
@@ -17,7 +17,7 @@ class AuthRepository {
             const results = await User.create(data)
             return results;    
         } catch (error) {
-            throw error
+            throw (error);
         }
     }
 }

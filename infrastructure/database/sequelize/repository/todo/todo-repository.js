@@ -32,7 +32,7 @@ class TodoRepository {
             });
         }
         catch (error) {
-            return error;
+            throw (error);
         }
     }
 
@@ -42,7 +42,7 @@ class TodoRepository {
             return results;
         }
         catch (error) {
-            return error;
+            throw (error);
         }
     }
 
@@ -51,7 +51,7 @@ class TodoRepository {
             const results = await Todo.destroy({ where: { id: todo.id } });
             return results;
         } catch (error) {
-            return error;
+            throw (error);
         }
     }
 }

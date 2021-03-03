@@ -31,7 +31,7 @@ class TodoRepository {
             const results = await Todo.update({_id: todo.id}, todo);
             return results;
         } catch (error) {
-            throw error;
+            throw (error);
         }
     }
 
@@ -40,7 +40,7 @@ class TodoRepository {
             const results = await Todo.deleteOne({_id: todo.id});
             return results;
         } catch (error) {
-            throw error;
+            throw (error);
         }
     }
 }

@@ -1,4 +1,4 @@
-const googleAuthConfig = require('../config/google-auth.js'); 
+const googleAuthConfig = require('../../config/google-auth.js'); 
 const {google} = require('googleapis');
 
 class GoogleAuthentication {

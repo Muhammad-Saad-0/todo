@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "findAllTodo": "node bin/todo.js findAll",
+    "findOneTodo": "node bin/todo.js findOne",
     "deleteTodo": "node bin/todo.js deleteTodo"
+
   },
   "author": "",
   "license": "ISC",

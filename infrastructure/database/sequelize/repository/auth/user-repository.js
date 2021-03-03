@@ -9,7 +9,7 @@ class UserRepository{
             const results = await User.findAll({attributes: ['username', 'password'], where: {username: username}})
             return results;    
         } catch (error) {
-            return error;
+            throw (error);
         }
     }
 
@@ -18,7 +18,7 @@ class UserRepository{
             const results = await User.create(data)
             return results;    
         } catch (error) {
-            throw error
+            throw (error);
         }
     }
 }
