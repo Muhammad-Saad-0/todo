@@ -39,7 +39,6 @@ class AuthService {
     }
 
     async signUp (username, password) {
-        
         try {
             const results = await this.userRepository.findUserByName(username);
             if (Object.keys(results).length === 0){

@@ -6,6 +6,8 @@ class TodoRepository {
 
     async create (data){
         try{
+            console.log(data);
+            console.log("I am in mongo create");
             const results = await Todo.create(data);
             return results;
         }

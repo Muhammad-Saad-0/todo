@@ -1,17 +1,13 @@
 require('dotenv').config()
-const express = require('express')
+const express = require('express');
 const bodyParser = require('body-parser');
 const passport = require('passport');
-const todoRoutes = require('./routes/todo-routes');
-const authRoutes = require('./routes/auth-routes.js');
 const app = express();
+const routes = require('./routes');
 
 app.use(bodyParser.json());
 app.use(passport.initialize());
-
-app.use('/', todoRoutes);
-app.use('/', authRoutes);
-
+app.use(routes);
 
 
 const CreateServer = () => {
